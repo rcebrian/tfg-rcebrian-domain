@@ -13,6 +13,10 @@ import {
 } from 'sequelize-typescript';
 import { Group } from './index';
 
+@DefaultScope(() => ({
+  attributes: ['id', 'name', 'description']
+}))
+
 @Table({ tableName: 'companies', timestamps: true })
 export default class Company extends Model {
   @Index('companies_id_uindex')
