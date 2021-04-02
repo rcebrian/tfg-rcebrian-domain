@@ -9,9 +9,13 @@ import {
   DeletedAt,
   UpdatedAt,
   Index,
-  ForeignKey, BelongsTo, BelongsToMany,
+  ForeignKey, BelongsTo, BelongsToMany, DefaultScope
 } from 'sequelize-typescript';
 import { Company, User, UsersGroups } from './index';
+
+@DefaultScope(() => ({
+  attributes: ['id', 'name', 'description']
+}))
 
 @Table({ tableName: 'groups', timestamps: true })
 export default class Group extends Model {
