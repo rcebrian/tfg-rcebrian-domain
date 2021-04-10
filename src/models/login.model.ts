@@ -23,6 +23,13 @@ export default class Login extends Model {
   passwordHash!: string;
 
   @Column({
+    field: 'password_salt',
+    type: DataType.TEXT,
+    allowNull: false,
+  })
+  passwordSalt!: string;
+
+  @Column({
     field: 'access_token',
     type: DataType.TEXT,
   })
