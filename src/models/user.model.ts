@@ -9,15 +9,24 @@ import {
   UpdatedAt,
   DeletedAt,
   DataType,
-  BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope,
+  BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope, Scopes
 } from 'sequelize-typescript';
 import {
   Role, Login, Group, UsersGroups,
 } from './index';
 
+const defaultAttributes = [ 'id', 'firstName', 'lastName', 'phone', 'email', 'address', 'country','postalCode' ];
+
 @DefaultScope(() => ({
-  attributes: [ 'id', 'firstName', 'lastName', 'phone', 'email', 'address', 'country','postalCode' ], 
+  attributes: defaultAttributes, 
   include: [ Role ]
+}))
+
+@Scopes(() => ({
+  noLogin: {
+    attributes: defaultAttributes, 
+    include: [ Role ]
+  },
 }))
 
 @Table({ tableName: 'users', timestamps: true })
