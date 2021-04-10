@@ -1,7 +1,11 @@
 import {
-  Table, Column, Model, PrimaryKey, DataType, AutoIncrement, Index, HasMany,
+  Table, Column, Model, PrimaryKey, DataType, AutoIncrement, Index, HasMany, DefaultScope
 } from 'sequelize-typescript';
 import { User } from './index';
+
+@DefaultScope(() => ({
+  attributes: ['name']
+}))
 
 @Table({ tableName: 'roles', timestamps: false })
 export default class Role extends Model {
