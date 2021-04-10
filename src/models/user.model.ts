@@ -15,6 +15,11 @@ import {
   Role, Login, Group, UsersGroups,
 } from './index';
 
+@DefaultScope(() => ({
+  attributes: [ 'id', 'firstName', 'lastName', 'phone', 'email', 'address', 'country','postalCode' ], 
+  include: [ Role ]
+}))
+
 @Table({ tableName: 'users', timestamps: true })
 export default class User extends Model {
   @Index('users_id_uindex')
