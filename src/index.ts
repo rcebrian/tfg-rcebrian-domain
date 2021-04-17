@@ -1,1 +1,8 @@
-export { Company, Group, Login, Role, User, UsersGroups } from './models';
+export { Company, 
+    Group, 
+    Login,
+    Role,
+    User,
+    UsersGroups,
+    Device 
+} from './models';
