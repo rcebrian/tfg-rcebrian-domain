@@ -20,7 +20,7 @@ import {
       field: 'bearer_token',
       type: DataType.TEXT,
     })
-    refreshToken!: string;
+    bearerToken!: string;
 
     @CreatedAt
     @Column({
