@@ -9,7 +9,7 @@ import {
   UpdatedAt,
   DeletedAt,
   DataType,
-  BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope,
+  BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope, Unique,
 } from 'sequelize-typescript';
 import {
   Role, Login, Group, UsersGroups,
@@ -53,6 +53,7 @@ export default class User extends Model {
   })
   phone?: string;
 
+  @Unique
   @Column({
     field: 'email',
     type: DataType.STRING(64),
