@@ -3,7 +3,7 @@ import {
   } from 'sequelize-typescript';
   import { User } from './index';
   
-  @Table({ tableName: 'devices', timestamps: false })
+  @Table({ tableName: 'devices', timestamps: true })
   export default class Device extends Model {
     @Index('devices_user_id_uindex')
     @ForeignKey(() => User)
