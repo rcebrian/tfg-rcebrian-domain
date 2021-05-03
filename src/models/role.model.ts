@@ -1,10 +1,16 @@
 import {
-  Table, Column, Model, PrimaryKey, DataType, AutoIncrement, Index, HasMany, DefaultScope
+  Table, Column, Model, PrimaryKey, DataType, AutoIncrement, Index, HasMany, DefaultScope, Scopes
 } from 'sequelize-typescript';
 import { User } from './index';
 
 @DefaultScope(() => ({
   attributes: ['name']
+}))
+
+@Scopes(() => ({
+  full: {
+    attributes: ['id', 'name']
+  }
 }))
 
 @Table({ tableName: 'roles', timestamps: false })
