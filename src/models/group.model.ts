@@ -9,13 +9,19 @@ import {
   DeletedAt,
   UpdatedAt,
   Index,
-  ForeignKey, BelongsTo, BelongsToMany, DefaultScope
+  ForeignKey, BelongsTo, BelongsToMany, DefaultScope, Scopes,
 } from 'sequelize-typescript';
 import { Company, User, UsersGroups } from './index';
 
 @DefaultScope(() => ({
   attributes: ['id', 'name', 'description'],
-  include: User
+}))
+
+@Scopes(() => ({
+  users: {
+    attributes: ['id', 'name'],
+    include: User
+  }
 }))
 
 @Table({ tableName: 'groups', timestamps: true })
