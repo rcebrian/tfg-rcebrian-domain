@@ -9,12 +9,19 @@ import {
   CreatedAt,
   DeletedAt,
   Index,
-  HasMany, DefaultScope,
+  HasMany, DefaultScope, Scopes,
 } from 'sequelize-typescript';
 import { Group } from './index';
 
 @DefaultScope(() => ({
   attributes: ['id', 'name', 'description']
+}))
+
+@Scopes(() => ({
+  tree: {
+    attributes: ['id', 'name', 'description'],
+    include: Group
+  }
 }))
 
 @Table({ tableName: 'companies', timestamps: true })
