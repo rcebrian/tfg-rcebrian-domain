@@ -38,15 +38,15 @@ export default class Company extends Model {
 
   @Column({
     field: 'name',
-    type: DataType.STRING(32),
+    type: DataType.STRING(512),
     allowNull: false,
   })
   name!: string;
 
   @Column({
     field: 'description',
-    type: DataType.STRING(64),
-    allowNull: false,
+    type: DataType.TEXT,
+    allowNull: true,
   })
   description?: string;
 
