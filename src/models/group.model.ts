@@ -14,7 +14,8 @@ import {
 import { Company, User, UsersGroups } from './index';
 
 @DefaultScope(() => ({
-  attributes: ['id', 'name', 'description']
+  attributes: ['id', 'name', 'description'],
+  include: User
 }))
 
 @Table({ tableName: 'groups', timestamps: true })
