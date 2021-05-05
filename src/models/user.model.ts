@@ -12,7 +12,7 @@ import {
   BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope, Unique,
 } from 'sequelize-typescript';
 import {
-  Role, Login, Group, UsersGroups,
+  Role, Login, Group, UsersGroups, Device
 } from './index';
 
 @DefaultScope(() => ({
@@ -114,4 +114,7 @@ export default class User extends Model {
 
   @HasOne(() => Login)
   login!: Login;
+
+  @HasOne(() => Device)
+  device?: Device;
 }
