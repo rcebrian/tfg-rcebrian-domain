@@ -9,7 +9,7 @@ import {
   UpdatedAt,
   DeletedAt,
   DataType,
-  BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope, Unique,
+  BelongsTo, ForeignKey, HasOne, BelongsToMany, DefaultScope, Unique, Scopes
 } from 'sequelize-typescript';
 import {
   Role, Login, Group, UsersGroups, Device
@@ -18,6 +18,13 @@ import {
 @DefaultScope(() => ({
   attributes: [ 'id', 'firstName', 'lastName', 'phone', 'email', 'address', 'country','postalCode' ], 
   include: [ Role ]
+}))
+
+@Scopes(() => ({
+  groups: {
+    attributes: ['groups'],
+    include: [Group],
+  }
 }))
 
 @Table({ tableName: 'users', timestamps: true })
