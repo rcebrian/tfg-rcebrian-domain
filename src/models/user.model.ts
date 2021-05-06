@@ -22,8 +22,8 @@ import {
 
 @Scopes(() => ({
   groups: {
-    attributes: [],
-    include: [Group],
+    attributes: ['id'],
+    include: [ Group ],
   }
 }))
 
